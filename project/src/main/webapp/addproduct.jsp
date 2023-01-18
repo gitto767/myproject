@@ -15,7 +15,7 @@ function CheckAddProduct(){
 	//상품아이디 체크
 	
 	//상품명 체크
-	if(name.value.length<4||name.value.length>12){
+	if(name.value.length<4||name.value.length>50){
 		alert("[상품명]\n최소 4자에서 최대 50자 까지 입력하세요.");
 		name.select();
 		name.focus();
