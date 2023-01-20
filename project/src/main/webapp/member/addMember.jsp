@@ -25,7 +25,7 @@
 <title>회원가입</title>
 </head>
 <body>
-    <%@ include file="../jsp/menu.jsp" %>
+    <%@ include file="../menu.jsp" %>
   <div>
     <div>
       <h1>회원가입</h1>

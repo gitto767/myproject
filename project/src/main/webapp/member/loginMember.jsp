@@ -8,15 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <%@ include file="../jsp/menu.jsp" %>
+   <%@ include file="../menu.jsp" %>
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">회원가입</h1>
+      <h1 class="display-3">로그인</h1>
     </div>
   </div>
   <div class="container" align="center">
     <div class="col-md-4 col-md-offset-4">
-      <h3 class="form-signin-heading">Please sign in</h3>
+      
       <%
         String error =request.getParameter("error");
         if(error!=null){
@@ -25,17 +25,29 @@
         	out.println("</div>");
         }
       %>
-      <form class="form-signin" action="processLoginMember.jsp" method="post">
-        <div class="form-group">
-          <label for="inputUserName" class="sr-only">User Name</label>
-          <input type="text" class="form-control" placeholder="ID" name="id" required autofocus>
+      
+      
+    <main class="form-signin w-100 m-auto">
+      <form action="processLoginMember.jsp" method="post">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="form-floating">
+          <input type="test" class="form-control" id="floatingInput" placeholder="ID" name="id" required autofocus>
+          <label for="floatingInput">ID</label>
         </div>
-        <div class="form-group">
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" class="form-control" placeholder="Password" name="password" required>
-        </div>  
-        <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
       </form>
+    </main>
+      
+      
     </div>
   
   </div>

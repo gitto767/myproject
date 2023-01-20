@@ -37,7 +37,7 @@ try{
 <title>회원 수정</title>
 </head>
 <body onload="init()">
-    <jsp:include page="../jsp/menu.jsp"/>
+    <jsp:include page="../menu.jsp"/>
     <div>
       <div>
         <h1>회원 수정</h1>

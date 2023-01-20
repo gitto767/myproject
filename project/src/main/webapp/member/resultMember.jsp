@@ -9,7 +9,7 @@
 <title>회원 정보</title>
 </head>
 <body>
- <%@ include file="../jsp/menu.jsp" %>
+ <%@ include file="..//menu.jsp" %>
   <div>
     <div>
       <h1>회원 정보</h1>

@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <title>Insert title here</title>
+
 <script>
 function CheckAddProduct(){
 	var productId=document.getElementById("productid");
