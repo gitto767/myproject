@@ -1,0 +1,26 @@
+create table productpro(
+productid varchar2(50) primary key,
+name varchar2(50),
+brand varchar2(20),
+filename varchar2(50));
+
+create table buying(
+productid varchar2(50) primary key,
+buyingprice number(10),
+buyid varchar2(20),
+address varchar2(50));
+
+create table selling(
+productid varchar2(50) primary key,                                                                                                     
+sellingprice number(10),
+sellid varchar2(20),
+address varchar2(50));
+
+create table orderpro(
+orderid number(10) primary key,
+productid varchar2(50),
+customerid varchar2(50),
+sellid varchar2(50),
+soldprice number(10),
+shipaddress varchar2(50),
+returnaddress varchar2(50));
