@@ -5,16 +5,20 @@ brand varchar2(20),
 filename varchar2(50));
 
 create table buying(
-productid varchar2(50) primary key,
+no number(10) primary key,
+productid varchar2(50),
 buyingprice number(10),
 buyid varchar2(20),
-address varchar2(50));
+address varchar2(50),
+shoesize number(3));
 
 create table selling(
-productid varchar2(50) primary key,                                                                                                     
+no number(10) primary key,
+productid varchar2(50),                                                                      
 sellingprice number(10),
 sellid varchar2(20),
-address varchar2(50));
+address varchar2(50),
+shoesize number(3));
 
 create table orderpro(
 orderid number(10) primary key,

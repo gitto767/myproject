@@ -13,7 +13,7 @@
 <%
     PreparedStatement pstmt=null;
     int no=0;
-	String sql="select max(no) from selling";
+	String sql="select max(no) from buying";
 	pstmt=conn.prepareStatement(sql);    	
     ResultSet rs=null;
     rs=pstmt.executeQuery();
@@ -21,18 +21,18 @@
     	no=rs.getInt(1)+1;
     }
     String productid=request.getParameter("id");
-    String sellingprice=request.getParameter("sellingprice");
-    String sellid=request.getParameter("sellid");
+    String buyingprice=request.getParameter("byingprice");
+    String buyid=request.getParameter("buyid");
     String address=request.getParameter("address");
     String shoesize=request.getParameter("shoesize");
        
     try{
-    	sql="insert into selling values(?,?,?,?,?,?)";
+    	sql="insert into buying values(?,?,?,?,?,?)";
     	pstmt=conn.prepareStatement(sql);    	
     	pstmt.setInt(1, no);
     	pstmt.setString(2, productid);
-    	pstmt.setString(3, sellingprice);
-    	pstmt.setString(4, sellid);
+    	pstmt.setString(3, buyingprice);
+    	pstmt.setString(4, buyid);
     	pstmt.setString(5, address);
     	pstmt.setString(6, shoesize);
     	pstmt.executeUpdate();

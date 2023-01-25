@@ -53,7 +53,7 @@
       <% System.out.println("error : "+sessionId);
              if(sessionId==null){%> 
                  <button type="button" class="btn btn-outline-primary me-2" onclick = "location.href = 'member/loginMember.jsp'">Login</button>
-                 <button type="button" class="btn btn-primary" onclick = "location.href = 'member/addMember.jsp'" >Sign-up</button>
+                 <button type="button" class="btn btn-primary" onclick = "location.href = '../member/addMember.jsp'" >Sign-up</button>
           <%        
              }else{%>
                   <div class="dropdown text-end">

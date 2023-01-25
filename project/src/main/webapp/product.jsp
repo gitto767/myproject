@@ -16,7 +16,7 @@
     </div>
   </div>
 <%
-String id=request.getParameter("id");
+    String id=request.getParameter("id");
     ProductRepository dao=ProductRepository.getInstance();
     Productproject product=dao.getProductById(id);
 %>
@@ -32,11 +32,14 @@ String id=request.getParameter("id");
         <p><b>상품 코드</b>:<span class="badge badge-danger"><%=product.getProductId() %></span>
         <p><b>제조사</b>:<%=product.getBrand() %>
        
-        <p><form name="addForm" action="./addCart.jsp?id=<%=product.getProductId() %>" method="post">
+        <p>
+        <form name="addForm" action="./addCart.jsp?id=<%=product.getProductId() %>" method="post">
           <a href="#" class="btn btn-info" onclick="addToCart()">상품 주문 &raquo;</a>
-          <a href="./cart.jsp" class="btn btn-success">즉시구매 &raquo;</a>
-          <a href="./products.jsp" class="btn btn-danger">즉시판매</a>
-        </form>       
+          <a href="buying.jsp?id=<%=id %>" class="btn btn-success">즉시구매 &raquo;</a>
+          <a href="selling.jsp?id=<%=id %>" class="btn btn-danger">즉시판매</a>
+          
+        </form>    
+           
       </div>
     </div>
     <hr>

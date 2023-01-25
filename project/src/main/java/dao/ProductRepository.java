@@ -45,6 +45,7 @@ public class ProductRepository {
 		return listOfProducts;
 	}
 	public Productproject getProductById(String productId) {
+		System.out.println("id : "+productId);
 		Productproject productById=null;
 		    for(int i=0;i<listOfProducts.size();i++) {
 		    	Productproject product=listOfProducts.get(i);
