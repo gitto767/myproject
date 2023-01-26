@@ -19,9 +19,11 @@
     String id=request.getParameter("id");
     ProductRepository dao=ProductRepository.getInstance();
     Productproject product=dao.getProductById(id);
+    
 %>
   <div class="container">
     <%product.getFilename(); %>
+    
     <div class="row">
       <div class="col-md-5">
         <img src="<%=request.getContextPath()%>/upload/<%=product.getFilename()%>" style="width:100%">
@@ -38,8 +40,49 @@
           <a href="buying.jsp?id=<%=id %>" class="btn btn-success">즉시구매 &raquo;</a>
           <a href="selling.jsp?id=<%=id %>" class="btn btn-danger">즉시판매</a>
           
-        </form>    
-           
+        </form>  
+     <%@ include file="dbconn.jsp"  %>  
+        <%
+          PreparedStatement pstmt=null;
+          ResultSet rs=null;
+          String ids=product.getProductId();
+          try{
+        	  String sql="select buyingprice from buying where productid=? order by buyingprice desc ";
+        	  
+        	  pstmt=conn.prepareStatement(sql);
+        	  pstmt.setString(1, ids);
+        	  rs=pstmt.executeQuery();
+        	  
+        	  while(rs.next()){
+        		  String buyingprice=rs.getString(1);
+        %>
+        <p><%= buyingprice %></p>
+        <%
+        	  }
+          }catch(Exception e){
+        	  e.printStackTrace();
+          }
+          
+        %>  
+        <%
+          try{
+        	  String sql="select sellingprice from selling where productid=? order by sellingprice";
+        	 
+        	  pstmt=conn.prepareStatement(sql);
+        	  pstmt.setString(1, ids);
+        	  rs=pstmt.executeQuery();
+        	  
+        	  while(rs.next()){
+        		  String sellingprice=rs.getString(1);
+        %>
+        <p><%= sellingprice %></p>
+        <%
+        }
+        	  
+          }catch(Exception e){
+        	  e.printStackTrace();
+          }
+        %>  
       </div>
     </div>
     <hr>

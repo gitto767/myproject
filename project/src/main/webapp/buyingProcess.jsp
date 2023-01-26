@@ -21,7 +21,7 @@
     	no=rs.getInt(1)+1;
     }
     String productid=request.getParameter("id");
-    String buyingprice=request.getParameter("byingprice");
+    String buyingprice=request.getParameter("buyingprice");
     String buyid=request.getParameter("buyid");
     String address=request.getParameter("address");
     String shoesize=request.getParameter("shoesize");

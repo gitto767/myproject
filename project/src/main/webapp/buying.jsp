@@ -31,7 +31,13 @@
     		shoesize.focus();
     		return false;
     	}
-    	document.buyingform.submit()
+    	return true;
+    }
+    function order(frm){
+    	alert("즉시구매하시겠습니까?");
+    	frm.action="orderprocess.jsp";
+    	frm.submit();
+    	return true;
     }
 </script>
 </head>
@@ -69,7 +75,7 @@ try{
         <p><b>제조사</b>:<%=product.getBrand() %>
        
         <p>
-        <form name="buyingform" action="buyingProcess.jsp" method="post">
+        <form name="buyingform" action="buyingProcess.jsp" method="post" onsubmit="buy()">
           <input type="text" name="id" value="<%=id%>" hidden>
           <input type="text" name="buyid" value="<%=sessionId%>" hidden>
           <input type="text" id="address" name="address" value="<%=address%>">
@@ -93,8 +99,29 @@ try{
           </select>
           <input type="text" id="buyingprice" name="buyingprice">
           <div class="col-sm-offset-2 col-sm-10">
-            <input type="button" class="btn btn-primary" value="즉시구매하기" onclick="order()">
-            <input type="button" class="btn btn-primary" value="구매입찰하기" onclick="buy()">
+            
+        <%
+            try{
+            String shoesize=request.getParameter("shoesize");
+            sql="select sellid,sellingprice, address from selling where sellingprice= (select max(sellingprice) from selling where shoesize=?)";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setString(1, shoesize);
+            rs=pstmt.executeQuery();
+            if(rs.next()){
+            	String sellingprice=rs.getString("sellingprice");
+            	%>
+            	
+            
+            <input type="button" class="btn btn-primary" value="즉시구매하기<%=sellingprice %>" onclick="return order(this.form);"> 
+            <%
+            }
+            }catch(Exception e){
+            	e.printStackTrace();
+            }
+            
+            %>
+            <p>fffffffffff</p>
+            <input type="submit" class="btn btn-primary" value="구매입찰하기">
           </div>
         </form> 
       </div>
