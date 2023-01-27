@@ -23,7 +23,7 @@
     String productid=request.getParameter("id");
     String buyingprice=request.getParameter("buyingprice");
     String buyid=request.getParameter("buyid");
-    String address=request.getParameter("address");
+    String shipaddress=request.getParameter("shipaddress");
     String shoesize=request.getParameter("shoesize");
        
     try{
@@ -33,7 +33,7 @@
     	pstmt.setString(2, productid);
     	pstmt.setString(3, buyingprice);
     	pstmt.setString(4, buyid);
-    	pstmt.setString(5, address);
+    	pstmt.setString(5, shipaddress);
     	pstmt.setString(6, shoesize);
     	pstmt.executeUpdate();
     	

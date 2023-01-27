@@ -9,7 +9,7 @@ no number(10) primary key,
 productid varchar2(50),
 buyingprice number(10),
 buyid varchar2(20),
-address varchar2(50),
+shipaddress varchar2(50),
 shoesize number(3));
 
 create table selling(
@@ -17,13 +17,14 @@ no number(10) primary key,
 productid varchar2(50),                                                                      
 sellingprice number(10),
 sellid varchar2(20),
-address varchar2(50),
+returnaddress varchar2(50),
 shoesize number(3));
 
 create table orderpro(
 orderid number(10) primary key,
 productid varchar2(50),
-customerid varchar2(50),
+shoesize number(3),
+buyid varchar2(50),
 sellid varchar2(50),
 soldprice number(10),
 shipaddress varchar2(50),
