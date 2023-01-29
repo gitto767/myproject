@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
+<link rel="stylesheet" href="../css/bootstrap.min.css"/>
 <script type="text/javascript">
   function checkForm(){
 	  if(!document.newMember.id.value){
@@ -25,48 +25,48 @@
 <title>회원가입</title>
 </head>
 <body>
-    <%@ include file="../menu.jsp" %>
-  <div>
-    <div>
-      <h1>회원가입</h1>
+    <%@ include file="menu.jsp" %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">회원가입</h1>
     </div>
   </div>
-  <div>
-    <form name="newMember" action="processAddMember.jsp" method="post" onsubmit="return checkForm()">
-      <div>
-        <label>아이디</label>
-        <div>
-          <input name="id" type="text" placeholder="id">
+  <div class="container">
+    <form name="newMember" class="form-horizontal" action="processAddMember.jsp" method="post" onsubmit="return checkForm()">
+      <div class="form-group row">
+        <label class="col-sm-2">아이디</label>
+        <div class="col-sm-3">
+          <input name="id" type="text" class="form-control" placeholder="id">
         </div>
       </div>
-      <div>
-        <label>비밀번호</label>
-        <div>
+      <div class="form-group row">
+        <label class="col-sm-2">비밀번호</label>
+        <div class="col-sm-3">
           <input name="password" type="text" class="form-control" placeholder="password">
         </div>
       </div> 
-      <div>
-        <label>비밀번호확인</label>
-        <div>
-          <input name="password_confirm" type="text"placeholder="password confirm">
+      <div class="form-group row">
+        <label class="col-sm-2">비밀번호확인</label>
+        <div class="col-sm-3">
+          <input name="password_confirm" type="text" class="form-control" placeholder="password confirm">
         </div>
       </div> 
-      <div>
-        <label>성명</label>
-        <div>
-          <input name="name" type="text"placeholder="name">
+      <div class="form-group row">
+        <label class="col-sm-2">성명</label>
+        <div class="col-sm-3">
+          <input name="name" type="text" class="form-control" placeholder="name">
         </div>
       </div> 
-      <div>
-        <label>성별</label>
-        <div>
+      <div class="form-group row">
+        <label class="col-sm-2">성별</label>
+        <div class="col-sm-10">
           <input name="gender" type="radio" value="남"/> 남
           <input name="gender" type="radio" value="여"/> 여
         </div>
       </div>  
-      <div>
-        <label>생일</label>
-        <div>
+      <div class="form-group row">
+        <label class="col-sm-2">생일</label>
+        <div class="col-sm-4">
           <input name="birthyy" type="text" maxlength="4" placeholder="년(xxxx)" size="6">
           <select name="birthmm">
             <option value="">월</option>
@@ -85,9 +85,9 @@
           </select><input name="birthdd" type="text" maxlength="2" placeholder="일" size="4">
         </div>
       </div> 
-      <div>
-        <label>이메일</label>
-        <div>
+      <div class="form-group row">
+        <label class="col-sm-2">이메일</label>
+        <div class="col-sm-10">
           <input name="mail1" type="text" maxlength="50">@
           <select name="mail2">
             <option value="naver.com">naver.com</option>
@@ -97,22 +97,22 @@
           </select>
         </div>
       </div>
-      <div>
-        <label>전화번호</label>
-        <div>
-          <input name="phone" type="text"placeholder="phone">
+      <div class="form-group row">
+        <label class="col-sm-2">전화번호</label>
+        <div class="col-sm-3">
+          <input name="phone" type="text" class="form-control" placeholder="phone">
         </div>
       </div> 
-      <div>
-        <label>주소</label>
-        <div>
-          <input name="address" type="text"placeholder="address">
+      <div class="form-group row">
+        <label class="col-sm-2">주소</label>
+        <div class="col-sm-5">
+          <input name="address" type="text" class="form-control" placeholder="address">
         </div>
       </div>
-      <div>
-        <div>
-          <input type="submit"value="등록">
-          <input type="reset" value="취소" onclick="reset()">
+      <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-secondary" value="등록">
+          <input type="reset" class="btn btn-outline-secondary" value="취소" onclick="reset()">
         </div>
       </div>              
     </form>

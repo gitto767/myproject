@@ -36,6 +36,7 @@
     	pstmt.setString(5, shipaddress);
     	pstmt.setString(6, shoesize);
     	pstmt.executeUpdate();
+    	response.sendRedirect("myorder.jsp");
     	
     }catch(Exception e){
     	e.printStackTrace();

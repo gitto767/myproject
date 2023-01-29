@@ -50,7 +50,7 @@
     	pstmt.setString(2, productid);
     	pstmt.setString(3, shoesize);
     	pstmt.executeUpdate();
-    	/* response.sendRedirect("resultMember.jsp"); */
+    	response.sendRedirect("myorder.jsp");
     }catch(Exception e){
     	e.printStackTrace();
     }

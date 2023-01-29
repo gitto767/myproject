@@ -1,3 +1,14 @@
+create table memberpro(
+id varchar2(20) primary key,
+password varchar2(20),
+name varchar2(20),
+gender varchar2(10),
+birth varchar2(10),
+mail varchar2(45),
+phone varchar2(13),
+address varchar2(80),
+timestamp date);
+
 create table productpro(
 productid varchar2(50) primary key,
 name varchar2(50),

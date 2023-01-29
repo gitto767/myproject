@@ -48,6 +48,7 @@
 </script>
 </head>
 <body>
+<jsp:include page="menu.jsp"/>
 <%
     String id=request.getParameter("id");
     ProductRepository dao=ProductRepository.getInstance();
@@ -69,7 +70,7 @@ try{
 		String address=rs.getString("address");
 %>
      <div class="container">
-    <%product.getFilename(); %>
+    <%product.getFilename() ;%>
     <div class="row">
       <div class="col-md-5">
         <img src="<%=request.getContextPath()%>/upload/<%=product.getFilename()%>" style="width:100%">
@@ -81,10 +82,11 @@ try{
         <p><b>제조사</b>:<%=product.getBrand() %>
        
         <p>
-        <form name="sellingform" action="selling.jsp?id=<%=id %>" method="post"onsubmit="sell()">
-          <input type="text" name="id" value="<%=id%>" hidden>
-          <input type="text" name="sellid" value="<%=sessionId%>" hidden>
-          <input type="text" id="address" name="returnaddress" value="<%=address%>">
+        <div class="col-md-6">
+        <form class="form-horizontal" name="sellingform" action="selling.jsp?id=<%=id %>" method="post"onsubmit="sell()">
+          <input  type="text" name="id" value="<%=id%>" hidden>
+          <input  type="text" name="sellid" value="<%=sessionId%>" hidden>
+          <input class="form-control" type="text" id="address" name="returnaddress" value="<%=address%>">
          
           <%
           String shoesize=request.getParameter("shoesize");
@@ -124,8 +126,8 @@ try{
         	  sizechange="300";
           }
           %>
-          
-         <select name="shoesize" id="shoesize"  onchange="changesubmit()">
+          <br>
+         <select class="form-control" name="shoesize" id="shoesize"  onchange="changesubmit()">
           <option value="" >선택</option>
           <option value="230" <%if(shoesize.equals("230")){%>selected<%} %>>230</option>
           <option value="235" <%if(shoesize.equals("235")){%>selected<%} %>>235</option>
@@ -143,11 +145,12 @@ try{
           <option value="295" <%if(shoesize.equals("295")){%>selected<%} %>>295</option>
           <option value="300" <%if(shoesize.equals("300")){%>selected<%} %>>300</option>
           </select>
-          
-          <input type="text" id="sellingprice" name="sellingprice">
-          
-          <div class="col-sm-offset-2 col-sm-10">
-          <input type="button" class="btn btn-primary" value="판매입찰하기" onclick="return sell(this.form);">
+          <br>
+          <input class="form-control" type="text" id="sellingprice" name="sellingprice" placeholder="판매가격">
+          <br>
+          <div class="col-md-6">
+          <input type="button" class="btn btn-outline-success" value="판매입찰하기" onclick="return sell(this.form);">
+          <br>
           <%
           String buyid;
           String maxprice;
@@ -164,8 +167,8 @@ try{
             <input type="text" name="buyid" value="<%=buyid %>" hidden>
             <input type="text" name="buyingprice" value="<%=maxprice %>" hidden>
             <input type="text" name="shipaddress" value="<%=shipaddress %>" hidden>
-           
-            <input type="button" class="btn btn-primary" value="즉시판매하기<%=maxprice %>" onclick="return order(this.form);">
+           <br>
+            <input type="button" class="btn btn-success" value="즉시판매하기<%=maxprice %>" onclick="return order(this.form);">
            <%
         	  }
           }catch(Exception e){
@@ -175,6 +178,7 @@ try{
           
           </div>
         </form> 
+        </div>
       </div>
     </div>
     </div>

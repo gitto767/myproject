@@ -8,12 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <%@ include file="../menu.jsp" %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">로그인</h1>
-    </div>
-  </div>
+   <%@ include file="menu.jsp" %>
+  
   <div class="container" align="center">
     <div class="col-md-4 col-md-offset-4">
       
@@ -43,7 +39,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <button class="w-100 btn btn-lg btn-secondary" type="submit">Sign in</button>
       </form>
     </main>
       

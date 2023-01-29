@@ -18,6 +18,7 @@ public class Productproject {
 		this.productId=productId;
 		this.name=name;
 		this.brand=brand;
+		
 	}
 	
 

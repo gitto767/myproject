@@ -48,6 +48,7 @@
 </script>
 </head>
 <body>
+<jsp:include page="menu.jsp"/>
 <%
     String id=request.getParameter("id");
     ProductRepository dao=ProductRepository.getInstance();
@@ -81,11 +82,12 @@ try{
         <p><b>제조사</b>:<%=product.getBrand() %>
        
         <p>
-        <form name="buyingform" action="buying.jsp?id=<%=id %>" method="post" onsubmit="buy()">
+        <div class="col-md-6">
+        <form class="form-horizontal" name="buyingform" action="buying.jsp?id=<%=id %>" method="post" onsubmit="buy()">
           <input type="text" name="id" value="<%=id%>" hidden>
           <input type="text" name="buyid" value="<%=sessionId%>" hidden>
-          <input type="text" id="address" name="shipaddress" value="<%=address%>">
-          
+          <input class="form-control" type="text" id="address" name="shipaddress" value="<%=address%>">
+          <br>
           <%
           String shoesize=request.getParameter("shoesize");
           if(shoesize==null){
@@ -125,7 +127,7 @@ try{
           }
           %>
                 
-          <select name="shoesize" id="shoesize"  onchange="changesubmit()">
+          <select class="form-control" name="shoesize" id="shoesize"  onchange="changesubmit()">
           <option value="" >선택</option>
           <option value="230" <%if(shoesize.equals("230")){%>selected<%} %>>230</option>
           <option value="235" <%if(shoesize.equals("235")){%>selected<%} %>>235</option>
@@ -143,10 +145,12 @@ try{
           <option value="295" <%if(shoesize.equals("295")){%>selected<%} %>>295</option>
           <option value="300" <%if(shoesize.equals("300")){%>selected<%} %>>300</option>
           </select>
-         
-          <input type="text" id="buyingprice" name="buyingprice">
-          
-          <div class="col-sm-offset-2 col-sm-10">
+         <br>
+          <input class="form-control"  type="text" id="buyingprice" name="buyingprice" placeholder="구매가격">
+          <br>
+          <div class="col-md-6">
+          <input type="button" class="btn btn-outline-danger" value="구매입찰하기" onclick="return buy(this.form);">
+          <br>
           <%
           String sellid;
           String minprice;
@@ -163,37 +167,17 @@ try{
           <input type="text" name="sellid" value="<%=sellid %>" hidden>
           <input type="text" name="sellingprice" value="<%=minprice %>" hidden>
           <input type="text" name="returnaddress" value="<%=returnaddress %>" hidden>
-         
-          <input type="button" class="btn btn-primary" value="즉시구매하기<%=minprice %>" onclick="return order(this.form);"> 
+         <br>
+          <input type="button" class="btn btn-danger" value="즉시구매하기<%=minprice %>" onclick="return order(this.form);"> 
           <%
         	  }
           }catch(Exception e){
         	  e.printStackTrace();
           }
           %>
-          <input type="button" class="btn btn-primary" value="구매입찰하기" onclick="return buy(this.form);">
+          
            
-      <%--  <%  
-            try{
-            String shoesize=request.getParameter("shoesize");
-            sql="select sellid,sellingprice, address from selling where sellingprice= (select max(sellingprice) from selling where shoesize=?)";
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setString(1, shoesize);
-            rs=pstmt.executeQuery();
-            if(rs.next()){
-            	String sellingprice=rs.getString("sellingprice");
-            	%>
-            	
-            
-            
-            <%
-            }
-            }catch(Exception e){
-            	e.printStackTrace();
-            }
-            
-            %>
-            <p>fffffffffff</p> --%>
+      
             
             
             <%
@@ -205,6 +189,8 @@ try{
             
           </div>
         </form> 
+        </div>
+        
       </div>
     </div>
     </div>

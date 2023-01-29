@@ -41,7 +41,7 @@ function CheckAddProduct(){
 </script>
 </head>
 <body>
-<%--     <%@ include file="menu.jsp" %> --%>
+<%@ include file="menu.jsp" %>
     <div class="jumbotron">
       <div class="container">
         <h1 class="display-6">상품등록</h1>
