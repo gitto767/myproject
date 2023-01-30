@@ -22,8 +22,7 @@
       <tr>
         <th scope="col">#</th><th scope="col">제품</th><th scope="col">사이즈</th><th scope="col">구매가격</th>
       </tr>
-      <tr>
-<%
+  <%
     PreparedStatement pstmt=null;
     ResultSet rs=null;
     try{
@@ -31,23 +30,25 @@
     	pstmt=conn.prepareStatement(sql);
     	pstmt.setString(1, sessionId);
     	rs=pstmt.executeQuery();
-    	if(rs.next()){
+    	while(rs.next()){
     		String orderid=rs.getString("orderid");
     		String productid=rs.getString("productid");
     		String shoesize=rs.getString("shoesize");
     		String soldprice=rs.getString("soldprice");
     		%>
+     <tr> 
         <td><%=orderid %></td>
         <td><%=productid %></td>
         <td><%=shoesize %></td>
         <td><b><%=soldprice %></b></td>
-    		<%
+    		
+    </tr>
+    <%
     	}
     }catch(Exception e){
     	e.printStackTrace();
     }
 %>
-    </tr>
   </table>
 </div>
 <div class="container">
@@ -56,32 +57,33 @@
       <tr>
         <th>#</th><th>제품</th><th>사이즈</th><th>판매가격</th><th>배송주소</th>
       </tr>
-      <tr>
-    <%
+   <%
     try{
     	String sql="select orderid,productid,shoesize,soldprice,shipaddress from orderpro where sellid=?";
     	pstmt=conn.prepareStatement(sql);
     	pstmt.setString(1, sessionId);
     	rs=pstmt.executeQuery();
-    	if(rs.next()){
+    	while(rs.next()){
     		String orderid2=rs.getString("orderid");
     		String productid2=rs.getString("productid");
     		String shoesize2=rs.getString("shoesize");
     		String soldprice2=rs.getString("soldprice");
     		String shipaddress=rs.getString("shipaddress");
     		%>
+      <tr>	
     	<td><%=orderid2 %></td>
         <td><%=productid2 %></td>
         <td><%=shoesize2 %></td>
         <td><b><%=soldprice2 %></b></td>
         <td><%=shipaddress %></td>
-   <%
+   
+      </tr>
+      <%
     	}
     }catch(Exception e){
     	e.printStackTrace();
     }
     %>        
-      </tr>
     </table>
 
 </div>
@@ -91,30 +93,30 @@
       <tr>
         <th scope="col">제품</th><th scope="col">사이즈</th><th scope="col">구매입찰가</th>
       </tr>
-      <tr>
+      
     <%
     try{
     	String sql="select * from buying where buyid=?";
     	pstmt=conn.prepareStatement(sql);
     	pstmt.setString(1, sessionId);
     	rs=pstmt.executeQuery();
-    	if(rs.next()){
+    	while(rs.next()){
     		String productid3=rs.getString("productid");
     		String shoesize3=rs.getString("shoesize");
     		String buyingprice=rs.getString("buyingprice");    		
     		%>
-    	
+      <tr>
         <td><%=productid3 %></td>
         <td><%=shoesize3 %></td>
         <td><b><%=buyingprice %></b></td>
-        
-   <%
+           
+      </tr>
+      <%
     	}
     }catch(Exception e){
     	e.printStackTrace();
     }
     %>        
-      </tr>
     </table>
 
 </div>
@@ -125,32 +127,31 @@
       <tr>
         <th>제품</th><th>사이즈</th><th>판매입찰가</th>
       </tr>
-      <tr>
+      
     <%
     try{
     	String sql="select productid,shoesize,sellingprice from selling where sellid=?";
     	pstmt=conn.prepareStatement(sql);
     	pstmt.setString(1, sessionId);
     	rs=pstmt.executeQuery();
-    	if(rs.next()){
+    	while(rs.next()){
     		
     		String productid4=rs.getString("productid");
     		String shoesize4=rs.getString("shoesize");
     		String sellingprice=rs.getString("sellingprice");
     		
     		%>
-    	
+      <tr>
         <td><%=productid4 %></td>
         <td><%=shoesize4 %></td>
-        <td><b><%=sellingprice %></b></td>
-       
-   <%
+        <td><b><%=sellingprice %></b></td>        
+      </tr>
+      <%
     	}
     }catch(Exception e){
     	e.printStackTrace();
     }
     %>        
-      </tr>
     </table>
 
 </div>

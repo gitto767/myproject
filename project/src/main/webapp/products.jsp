@@ -34,7 +34,7 @@
         <h3><%=rs.getString("name") %></h3>
         <p><%=rs.getString("brand")%></p>
         <p><%=rs.getString("productId")%></p>
-        <p><%=rs.getString("filename") %></p>
+        <p></p>
         <p><a href="product.jsp?id=<%=rs.getString("productId")%>" class="btn btn-secondary" role="button">상세정보 &raquo;</a></p>
       </div>  
         <%	
